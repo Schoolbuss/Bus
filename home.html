@@ -1,0 +1,119 @@
+l<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários de Login e Cadastro</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: yellow; }
+        .form-container { background-color: white; padding: 20px; margin: 20px auto; width: 90%; max-width: 400px; }
+        .form-title { background-color: #0047ab; color: white; padding: 10px; text-align: center; }
+        .form-section { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 5px; }
+        input[type="text"], input[type="password"], input[type="date"] { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 5px; }
+        .radio-group { display: flex; justify-content: space-between; }
+        .radio-group label { flex: 1; text-align: center; }
+        .submit-btn { background-color: #ffcc00; color: black; border: none; padding: 10px; width: 100%; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+
+
+    <div class="form-container">
+        <div class="form-title">Informações do aluno</div>
+        <form>
+            <div class="form-section">
+                <label for="school">Escola</label>
+                <input type="text" id="school" name="school" placeholder="Nome da escola">
+            </div>
+            <div class="form-section">
+                <label for="childName">Nome da Criança</label>
+                <input type="text" id="childName" name="childName" placeholder="Nome completo da criança">
+            </div>
+            <div class="form-section">
+                <label for="dob">Data de Nascimento da Criança</label>
+                <input type="date" id="dob" name="dob">
+            </div>
+            <div class="form-section">
+                <label>Possui alguma alergia?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="allergy" value="yes"> Sim</label>
+                    <label><input type="radio" name="allergy" value="no" checked> Não</label>
+                </div>
+                <input type="text" id="allergyDetails" name="allergyDetails" placeholder="Detalhes da alergia" style="display:none;">
+            </div>
+            <div class="form-section">
+                <label>Toma algum remédio?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="medication" value="yes"> Sim</label>
+                    <label><input type="radio" name="medication" value="no" checked> Não</label>
+                </div>
+                <input type="text" id="medicationDetails" name="medicationDetails" placeholder="Detalhes do remédio" style="display:none;">
+            </div>
+            <div class="form-section">
+                <label>Possui convênio médico?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="insurance" value="yes"> Sim</label>
+                    <label><input type="radio" name="insurance" value="no" checked> Não</label>
+                </div>
+                <input type="text" id="insuranceName" name="insuranceName" placeholder="Nome do convênio" style="display:none;">
+<div>
+    <button type="submit" class="submit-btn" id="validate-btn">Cadastrar</button>
+</div>
+
+<script>
+    document.getElementById("validate-btn").addEventListener("click", function(event) {
+        // Exemplo de validação (substitua pela lógica que desejar)
+        let isValid = true; // Coloque a lógica de validação aqui
+
+        if (isValid) {
+            // Redireciona para home2.html
+            window.location.href = "home2.html";
+        } else {
+            // Exibe uma mensagem de erro ou faça algo quando a validação falhar
+            alert("A validação falhou. Verifique os campos.");
+        }
+
+        // Previne o envio do formulário (se necessário)
+        event.preventDefault();
+    });
+</script>
+        </form>
+    </div>
+
+    <script>
+        function logar() {
+            var login = document.getElementById('login').value;
+            var senha = document.getElementById('senha').value;
+            if (login === "admin" && senha === "admin") {
+                alert('Sucesso');
+                location.href = "home.html";
+                return false; // impede o envio do formulário
+            } else {
+                alert('Usuário ou senha incorretos');
+                return false; // impede o envio do formulário
+            }
+        }
+
+        document.querySelectorAll('input[name="allergy"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                document.getElementById('allergyDetails').style.display = event.target.value === "yes" ? "block" : "none";
+            });
+        });
+
+        document.querySelectorAll('input[name="medication"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                document.getElementById('medicationDetails').style.display = event.target.value === "yes" ? "block" : "none";
+            });
+        });
+
+        document.querySelectorAll('input[name="insurance"]').forEach((elem) => {
+            elem.addEventListener("change", function(event) {
+                document.getElementById('insuranceName').style.display = event.target.value === "yes" ? "block" : "none";
+            });
+        });
+    </script>
+
+</body>
+</html>
