@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Geolocalização com um Clique</title>
+  <script>
+    function getLocation() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const latitude = position.coords.latitude;
+            const longitude = position.coords.longitude;
+            document.getElementById("output").innerHTML = `Latitude: ${latitude} <br> Longitude: ${longitude}`;
+          },
+          function (error) {
+            document.getElementById("output").innerHTML = "Erro ao obter localização: " + error.message;
+          }
+        );
+      } else {
+        document.getElementById("output").innerHTML = "Geolocalização não é suportada neste navegador.";
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Obter Localização Atual</h1>
+  <button onclick="getLocation()">Clique para obter localização</button>
+
+  <p id="output">Sua localização aparecerá aqui.</p>
+
+</body>
+</html>
