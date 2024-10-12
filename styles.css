@@ -25,7 +25,7 @@ body {
 
 /* HERO SECTION */
 #hero {
-  background: linear-gradient(120deg, #0000ff 40%, #ffd700 100%);
+  background: linear-gradient(120deg, #0000ff 40%,#ffd700 100%);
   color: #fff;
   height: 100vh;
   display: flex;
@@ -44,7 +44,7 @@ body {
 }
 
 .hero-title span {
-  color: #ffd700;
+  color: #0000f1;
 }
 
 .cta-btn--hero {

@@ -5,18 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function showConfirmationMessage(event) {
+            event.preventDefault(); // Evita o envio do formulário
+            const confirmationMessage = document.getElementById("confirmation-message");
+            confirmationMessage.style.display = "block"; // Exibe a mensagem
+        }
+    </script>
 </head>
 <body>
     <div class="forgot-password-container">
         <h2>Esqueceu sua senha?</h2>
         <p>Insira seu e-mail para receber o link de recuperação de senha.</p>
-        <form action="#">
+        <form id="forgot-password-form" onsubmit="showConfirmationMessage(event)">
             <div class="input-field">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <button type="submit">Enviar</button>
         </form>
+        <p id="confirmation-message" style="display:none; color: green;">Um link de recuperação de senha foi enviado para o seu e-mail!</p>
     </div>
 </body>
 </html>
