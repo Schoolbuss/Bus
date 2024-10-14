@@ -7,34 +7,47 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: yellow;
+            background: url('a.png') no-repeat center center fixed; /* Ajuste para centralizar e fixar */
+            background-size: cover; /* Cobre toda a tela */
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            height: 100vh; /* Ocupa 100% da altura da janela */
+            display: flex; /* Usando flexbox */
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
         }
+
         .form-container {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com opacidade para melhor visibilidade */
             padding: 20px;
             margin: 20px auto;
             width: 90%;
-            max-width: 400px;
+            max-width: 400px; /* Largura máxima */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
+            position: relative;
+            z-index: 1; /* Garante que o formulário fique acima da imagem de fundo */
         }
+
         .form-title {
             background-color: #0047ab;
             color: white;
             padding: 10px;
             text-align: center;
             border-radius: 10px 10px 0 0;
+            margin-bottom: 20px; /* Espaçamento inferior */
         }
+
         .form-section {
             margin-bottom: 20px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
         }
+
         input[type="text"], input[type="password"], input[type="date"] {
             width: 100%;
             padding: 10px;
@@ -43,14 +56,17 @@
             border-radius: 5px;
             box-sizing: border-box;
         }
+
         .radio-group {
             display: flex;
             justify-content: space-between;
         }
+
         .radio-group label {
             flex: 1;
             text-align: center;
         }
+
         .submit-btn {
             background-color: #ffcc00;
             color: black;
@@ -59,22 +75,30 @@
             width: 100%;
             border-radius: 5px;
             cursor: pointer;
+            transition: background-color 0.3s;
         }
+
+        .submit-btn:hover {
+            background-color: #e6b800; /* Cor ao passar o mouse */
+        }
+
         /* Media Query for Mobile */
         @media (max-width: 600px) {
             .form-container {
-                width: 100%;
-                margin: 10px;
+                width: 100%; /* Largura total em telas pequenas */
+                margin: 10px; /* Reduzindo a margem em telas pequenas */
             }
+
             .submit-btn {
                 font-size: 14px;
                 padding: 12px;
             }
         }
+
         /* Media Query for Tablets */
         @media (min-width: 601px) and (max-width: 1024px) {
             .form-container {
-                width: 80%;
+                width: 80%; /* Largura em tablets */
                 margin: 20px auto;
             }
         }
@@ -83,19 +107,19 @@
 <body>
 
     <div class="form-container">
-        <div class="form-title">Informações do aluno</div>
+        <div class="form-title">Informações do Aluno</div>
         <form>
             <div class="form-section">
                 <label for="school">Escola</label>
-                <input type="text" id="school" name="school" placeholder="Nome da escola">
+                <input type="text" id="school" name="school" placeholder="Nome da escola" required>
             </div>
             <div class="form-section">
                 <label for="childName">Nome da Criança</label>
-                <input type="text" id="childName" name="childName" placeholder="Nome completo da criança">
+                <input type="text" id="childName" name="childName" placeholder="Nome completo da criança" required>
             </div>
             <div class="form-section">
                 <label for="dob">Data de Nascimento da Criança</label>
-                <input type="date" id="dob" name="dob">
+                <input type="date" id="dob" name="dob" required>
             </div>
             <div class="form-section">
                 <label>Possui alguma alergia?</label>
@@ -124,22 +148,21 @@
             <div>
                 <button type="submit" class="submit-btn" id="validate-btn">Cadastrar</button>
             </div>
-
-            <script>
-                document.getElementById("validate-btn").addEventListener("click", function(event) {
-                    let isValid = true; // Coloque a lógica de validação aqui
-                    if (isValid) {
-                        window.location.href = "home2.html";
-                    } else {
-                        alert("A validação falhou. Verifique os campos.");
-                    }
-                    event.preventDefault();
-                });
-            </script>
         </form>
     </div>
 
     <script>
+        document.getElementById("validate-btn").addEventListener("click", function(event) {
+            let isValid = true; // Coloque a lógica de validação aqui
+            if (isValid) {
+                window.location.href = "home2.html"; // Redireciona após validação
+            } else {
+                alert("A validação falhou. Verifique os campos.");
+            }
+            event.preventDefault(); // Impede o envio do formulário
+        });
+
+        // Mostrar detalhes de alergia, remédio e convênio
         document.querySelectorAll('input[name="allergy"]').forEach((elem) => {
             elem.addEventListener("change", function(event) {
                 document.getElementById('allergyDetails').style.display = event.target.value === "yes" ? "block" : "none";
@@ -158,6 +181,5 @@
             });
         });
     </script>
-
 </body>
 </html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Check-in e Check-out</title>
+    <style>
+        table {
+            width: 60%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align: center;">Tabela de Check-in e Check-out</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nº</th>
+                <th>Nome Completo</th>
+                <th>Check-in</th>
+                <th>Check-out</th>
+                <th>Lembre de mim</th>
+                <th>Entregue</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Lucas Mendes Ferreira</td>
+                <td id="checkin1">08:00</td>
+                <td id="checkout1">17:00</td>
+                <td><input type="checkbox" name="lembre1" onclick="marcarCheckIn('checkin1', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout1')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ana Clara Silva Nogueira</td>
+                <td id="checkin2">08:15</td>
+                <td id="checkout2">16:45</td>
+                <td><input type="checkbox" name="lembre2" onclick="marcarCheckIn('checkin2', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout2')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Pedro Henrique Souza Martins</td>
+                <td id="checkin3">08:10</td>
+                <td id="checkout3">17:30</td>
+                <td><input type="checkbox" name="lembre3" onclick="marcarCheckIn('checkin3', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout3')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Maria Eduarda Oliveira Costa</td>
+                <td id="checkin4">08:05</td>
+                <td id="checkout4">17:00</td>
+                <td><input type="checkbox" name="lembre4" onclick="marcarCheckIn('checkin4', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout4')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>João Miguel Almeida Santos</td>
+                <td id="checkin5">08:20</td>
+                <td id="checkout5">16:55</td>
+                <td><input type="checkbox" name="lembre5" onclick="marcarCheckIn('checkin5', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout5')">Entregue</button></td>
+            </tr>
+            <!-- Continue para as outras linhas -->
+        </tbody>
+    </table>
+
+    <script>
+        function marcarCheckIn(id, checkbox) {
+            if (checkbox.checked) {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                document.getElementById(id).innerText = `${hours}:${minutes}`;
+            } else {
+                document.getElementById(id).innerText = "--:--";
+            }
+        }
+
+        function marcarCheckOut(id) {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            document.getElementById(id).innerText = `${hours}:${minutes}`;
+        }
+    </script>
+<script>
+    window.onload = function() {
+        const studentName = localStorage.getItem("studentName");
+        
+        if (studentName) {
+            // Recupera a tabela e insere o novo aluno na próxima linha disponível
+            const table = document.querySelector("tbody");
+            const rowCount = table.rows.length + 1;
+
+            const newRow = `
+                <tr>
+                    <td>${rowCount}</td>
+                    <td>${studentName}</td>
+                    <td id="checkin${rowCount}">--:--</td>
+                    <td id="checkout${rowCount}">--:--</td>
+                    <td><input type="checkbox" name="lembre${rowCount}" onclick="marcarCheckIn('checkin${rowCount}', this)"> Lembre de mim</td>
+                    <td><button onclick="marcarCheckOut('checkout${rowCount}')">Entregue</button></td>
+                </tr>
+            `;
+
+            table.insertAdjacentHTML('beforeend', newRow);
+
+            // Limpa o localStorage após o uso
+            localStorage.removeItem("studentName");
+        }
+    }
+</script>
+</body>
+</html>
