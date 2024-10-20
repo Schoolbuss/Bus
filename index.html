@@ -1,136 +1,145 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - seja bem vindo a tela de login</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    <!-- FONTWESOME -->
-    <script src="https://kit.fontawesome.com/e3e0ab7579.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SchoolBus</title>
+  
+  <!-- Link para os estilos -->
+  <link rel="stylesheet" href="stylesss.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Adicionando estilos CSS diretamente para a imagem responsiva */
+    .responsive-image {
+        width: 100%; /* Faz a imagem ocupar 100% da largura do seu contêiner */
+        height: auto; /* Mantém a proporção da imagem */
+        max-width: 500px; /* Define uma largura máxima para a imagem */
+        display: block; /* Garante que não haja espaço embaixo da imagem */
+        margin: 0 auto; /* Centraliza a imagem */
+    }
+  </style>
 </head>
+
 <body>
+  <!-- Navbar deslizante (Mobile) -->
+  <nav>
+    <div class="mobile-menu" onclick="toggleMenu()">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+    </div>
+    <a class="logo" href="#"></a>
+    <ul class="nav-list">
+      <li><a href="#">Home</a></li>
+      <li><a href="#about">Sobre</a></li>
+      <li><a href="informacoes_aluno.html">Informações do Aluno</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="checkin_checkout.html">Check-in e Check-out</a></li>
+      <li><a href="#chat">Chat</a></li> <!-- Adicionado item do menu -->
+      <li><a href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- **** Seção Hero **** -->
+  <section id="hero" class="jumbotron">
     <div class="container">
+      <img src="bus.png" alt="Descrição da imagem" />
+      <h1 class="hero-title load-hidden">
+        Olá, seja bem vindo ao <span class="text-color-main">SchoolBus</span>
+      </h1>
+      <p class="hero-cta load-hidden">
+        <a rel="noreferrer" class="cta-btn cta-btn--hero" href="#about">Saiba mais</a>
+      </p>
+    </div>
+  </section>
 
-        <div class="content first-content">
+  <!-- **** Seção Sobre **** -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title load-hidden">Sobre</h2>
+      <div class="row about-wrapper">
+        <div class="col-md-6 col-sm-12">
+          <div class="about-wrapper__image load-hidden">
+            <img class="responsive-image" src="logo.png" alt="Descrição da logo" />
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+          <div class="about-wrapper__info load-hidden">
+            <p class="about-wrapper__info-text">
+              SchoolBus: Sistema de Check-in e Check-out para Transporte Escolar. 
+              A página SchoolBus foi criada para garantir mais segurança e tranquilidade aos pais, fornecendo informações em tempo real sobre o transporte escolar de seus filhos. 
+            </p>
+            <p class="about-wrapper__info-text">
+              O sistema de check-in e check-out permite que as crianças registrem sua entrada e saída do transporte escolar, e os pais recebam notificações imediatas.
+            </p>
+            <p class="about-wrapper__info-text">
+              <img class="responsive-image" src="image.png" alt="Descrição da imagem" />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="first-column">
-                <h2 class="title title-primary">Bem Vindo!</h2>
-                <p class="description description-primary">Para se manter conectado conosco</p>
-                <p class="description description-primary">Por favor logue com suas informações pessoais</p>
-                <button id="signin" class="btn btn-primary">entrar</button>
-            </div><!-- FIRST-COLUMN -->
+  <!-- **** Seção de Projetos **** -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title load-hidden">Projetos</h2>
+      <div class="row">
+        <!-- Projeto 1 -->
+        <div class="col-lg-4 col-sm-12">
+          <div class="project-wrapper__text load-hidden">
+            <h3 class="project-wrapper__text-title">Título do Projeto</h3>
+            <p class="mb-4">
+              Desenvolvimento de software para cadastro.
+            </p>
+            <!-- Links removidos -->
+          </div>
+        </div>
+        <div class="col-lg-8 col-sm-12">
+          <div class="project-wrapper__image load-hidden">
+            <!-- Imagem do projeto -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="second-column">
-                <h2 class="title title-second">Criar conta</h2>
-                <div class="social-midia">
-                    <ul class="list-social-midia">
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-facebook-f"></i></li>
-                        </a><!-- FACEBOOK -->
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-google"></i></li>
-                        </a><!-- GOOGLE -->
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-linkedin-in"></i></li>
-                        </a><!-- LINKEDIN -->
-                    </ul>
-                </div><!-- SOCIAL-MIDIA -->
-<p class="description descriptionsrc="-second">
-    <a href="senha.html">Esqueceu a senha?</a>
-</p>
-                <form class="form">
-                    <label class="label-input icon-modify" for="">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nome">
-                    </label>
-                    <label class="label-input icon-modify" for="">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email">
-                    </label>
-                    <label class="label-input icon-modify" for="">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Senha">
-                    </label>
-                    <button id="signup" class="btn btn-primary">Registre-se</button>
-                </form>
-            </div><!-- SECOND-COLUMN -->
+  <!-- **** Seção de Chat **** -->
+  <section id="chat">
+    <div class="container">
+      <h2 class="section-title">Chat</h2>
+      <p>
+        O SchoolBus é uma plataforma inovadora que conecta pais, alunos e motoristas de ônibus escolares, proporcionando uma comunicação eficiente e em tempo real. Através do recurso de chat, os usuários podem se comunicar diretamente com os motoristas, esclarecendo dúvidas, compartilhando informações sobre horários e trajetos, ou notificando sobre mudanças de última hora. O ambiente é seguro e intuitivo, permitindo que os pais acompanhem o trajeto dos filhos e que os motoristas se mantenham informados sobre qualquer situação. Com o SchoolBus, a experiência de transporte escolar se torna mais tranquila e confiável, promovendo a segurança e a transparência para todos os envolvidos.
+      </p>
+      <!-- Adicionando a imagem do chat -->
+      <img class="responsive-image" src="chat.png" alt="Descrição da imagem do chat" />
+    </div>
+  </section>
 
-        </div><!-- CONTENT FIRST-CONTENT -->
-        
-        <div class="content second-content">
+  <!-- **** Seção de Contato **** -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contato</h2>
+      <div class="contact-wrapper load-hidden">
+        <p class="contact-wrapper__text">Entre em contato comigo através dos seguintes canais:</p>
 
-            <div class="first-column">
-                <h2 class="title title-primary">Bem Vindo!</h2>
-                <p class="description description-primary">Insira seus dados pessoais</p>
-                <p class="description description-primary">e comece sua jornada conosco.</p>
-                <button id="signup-switch" class="btn btn-primary">registre-se</button>
-            </div><!-- FIRST-COLUMN -->
+        <!-- Ícone do WhatsApp -->
+        <a href="https://wa.me/5511998881757" target="_blank" rel="noreferrer" class="cta-btn cta-btn--whatsapp">
+          <i class="fab fa-whatsapp" style="font-size: 30px; color: #25d366;"></i> WhatsApp
+        </a>
 
-            <div class="second-column">
-                <h2 class="title title-second">Entre na sua conta</h2>
-                <div class="social-midia">
-                    <ul class="list-social-midia">
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-facebook-f"></i></li>
-                        </a><!-- FACEBOOK -->
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-google"></i></li>
-                        </a><!-- GOOGLE -->
-                        <a class="link-social-midia" href="#">
-                            <li class="item-social-midia"><i class="fab fa-linkedin-in"></i></li>
-                        </a><!-- LINKEDIN -->
-                    </ul>
-                </div><!-- SOCIAL-MIDIA -->
-                <p class="description description-second">esqueceu a senha?</p>
-                <form class="form">
-                    <label class="label-input icon-modify" for="">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email">
-                    </label>
-                    <label class="label-input icon-modify" for="">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Senha">
-                    </label>
-                    <a class="password" href="#">esqueceu a senha?</a>
-                    <button id="signin-switch" class="btn btn-second">entrar</button>
-                </form>
-            </div><!-- SECOND-COLUMN -->
+        <!-- Ícone do E-mail -->
+        <a href="mailto:ricardohdepaula10@gmail.com" target="_blank" rel="noreferrer" class="cta-btn cta-btn--email">
+          <i class="fas fa-envelope" style="font-size: 30px; color: #D44638;"></i> E-mail
+        </a>
+      </div>
+    </div>
+  </section>
 
-        </div><!-- CONTENT SECOND-CONTENT -->
+  <!-- Scripts -->
+  <script src="script.js"></script>
 
-    </div><!-- CONTAINER -->
-
-    <!-- IMPORT JAVASCRIPT -->
-    <script src="js/script.js"></script>
-    
-    <script>
-    // Redirecionar após registro
-    document.getElementById('signup').addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('Registro iniciado.');
-        this.disabled = true;
-        this.textContent = 'Registrando...';
-
-        setTimeout(function() {
-            window.location.href = 'home.html'; 
-        }, 2000); 
-    });
-
-
-    // Redirecionar após login
-    document.getElementById('signin').addEventListener('click', function(e) {
-        e.preventDefault();
-        console.log('Login iniciado.');
-        this.disabled = true;
-        this.textContent = 'Entrando...';
-
-        setTimeout(function() {
-            window.location.href = 'home.html'; 
-        }, 2000);
-    });
-    </script>
 </body>
 </html>

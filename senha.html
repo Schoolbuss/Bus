@@ -142,6 +142,12 @@
             const confirmationMessage = document.getElementById("confirmation-message");
             confirmationMessage.style.display = "block"; // Exibe a mensagem
         }
+
+        function redirectToIndex() {
+            setTimeout(function() {
+                window.location.href = "index.html"; // Redireciona para index.html após 3 segundos
+            }, 3000); // Atraso de 3000 milissegundos (3 segundos)
+        }
     </script>
 </head>
 <body>
@@ -160,7 +166,7 @@
                 <button type="submit">RECUPERAR SENHA</button>
             </form>
             <p id="confirmation-message">Um link de recuperação de senha foi enviado para o seu e-mail!</p>
-            <p>Lembrou a senha? <a href="#">Entrar</a></p>
+            <p>Lembrou a senha? <a href="#" onclick="redirectToIndex(); return false;">Entrar</a></p>
         </div>
     </div>
 </body>

@@ -1,8 +1,8 @@
 /* ROOT VARIABLES */
 :root {
-    --main-color: #000;  /* Cor de fundo da navbar em preto */
-    --link-color: #fff;  /* Cor do texto dos links em branco */
-    --highlight-text: #ffffff; /* Mantenha o texto de destaque em branco */
+    --main-color: #fff;  /* Cor de fundo da navbar e footer em branco */
+    --link-color: #000;  /* Cor do texto dos links em preto */
+    --highlight-text: #000; /* Texto de destaque em preto */
 }
 
 /* RESETS */
@@ -29,7 +29,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--main-color); /* Alterado para preto */
+    background: var(--main-color); /* Alterado para branco */
     height: 8vh;
     position: relative;
 }
@@ -42,7 +42,7 @@ nav {
 .mobile-menu div {
     width: 32px;
     height: 2px;
-    background: #ffffff; /* Alterado para branco */
+    background: #000; /* Alterado para preto */
     margin: 6px 0;
     transition: 0.3s;
 }
@@ -53,7 +53,7 @@ nav {
     left: 0;
     width: 50vw;
     height: 92vh;
-    background: var(--main-color); /* Alterado para preto */
+    background: var(--main-color); /* Alterado para branco */
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
@@ -73,12 +73,12 @@ nav {
 
 .nav-list a {
     text-decoration: none;
-    color: var(--link-color); /* Mantenha em branco */
+    color: var(--link-color); /* Mantenha em preto */
     transition: color 0.4s;
 }
 
 .nav-list a:hover {
-    color: var(--highlight-text); /* Mantenha em branco */
+    color: var(--highlight-text); /* Mantenha em preto */
 }
 
 /* Animação do menu */
@@ -107,7 +107,7 @@ nav {
     position: fixed;
     top: 0;
     right: 0;
-    background-color: #333;
+    background-color: #fff; /* Alterado para branco */
     overflow-x: hidden;
     transition: width 0.5s;
     padding-top: 60px;
@@ -118,13 +118,13 @@ nav {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 22px;
-    color: #f1f1f1;
+    color: #000; /* Alterado para preto */
     display: block;
     transition: background-color 0.3s;
 }
 
 .side-menu a:hover {
-    background-color: #575757;
+    background-color: #ddd; /* Fundo cinza claro */
 }
 
 .side-menu.open {
@@ -276,8 +276,8 @@ nav {
 
 /* FOOTER */
 footer {
-    background-color: #000;
-    color: #fff;
+    background-color: var(--main-color); /* Alterado para branco */
+    color: var(--link-color); /* Texto preto */
     padding: 20px 0;
     text-align: center;
 }
