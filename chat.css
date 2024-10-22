@@ -1,17 +1,30 @@
+/* General Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   border: none;
   background: none;
-  outline: none
+  outline: none;
 }
 
+body {
+  background-image: url('c.png');
+  background-size: cover; /* Cover entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No image repetition */
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+}
+
+/* Header Styles */
 header {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3), 0 7px 21px 0 rgba(0, 0, 0, 0.20);
+  padding: 2vh 3vw; /* Relative padding */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 7px 21px rgba(0, 0, 0, 0.2);
   background: whitesmoke;
   z-index: 3;
   position: sticky;
@@ -21,20 +34,20 @@ header {
 header #openMenu i {
   color: #FEB822;
   font-weight: 800;
-  font-size: 20px;
+  font-size: 3vw; /* Scales with screen size */
 }
 
 header #logo .maryam {
   border: 1px solid #FEB822;
   border-radius: 1vh;
-  padding: 4.5px 0;
+  padding: 0.8vh 0;
 }
 
 header #logo .maryam #mar {
   background: #FEB822;
   color: whitesmoke;
   font-weight: 700;
-  padding: 5px 10px 5px;
+  padding: 0.8vh 2vw;
   text-align: center;
   border-radius: 1vh;
 }
@@ -42,53 +55,28 @@ header #logo .maryam #mar {
 header #logo .maryam #yam {
   color: #FEB822;
   font-weight: 700;
-  padding: 3px 8px;
+  padding: 0.5vh 2vw;
   margin-left: -3px;
 }
 
 header .toggle a {
-  font-size: 22px;
-
-}
-
-header .toggle a:nth-child(1) {
+  font-size: 4vw;
   color: #FEB822;
   transition: ease-in-out 1.3s;
   text-decoration: none;
 }
 
-/*header .toggle i:nth-child(2) {
-  color: #FEB822;
-  display: none;
-  transition: ease-in-out 1.3s;
-}*/
-
-section {
-  background: url("/media/images/whitebg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  /*background-position: center;*/
-  height: 100vh;
-  position: relative;
-  opacity: 0.9;
-  z-index: 1;
-  margin-top: 5px;
-  padding: 10px;
-  transition: ease-in-out 1.3s;
-}
-
-.background2 {
-  background: url("/media/images/yellow4.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  transition: ease-in-out 1.3s;
-}
-
+/* Chat Container Styles */
 .chat-container {
-  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  margin: 5vh auto;
+  max-width: 80vw; /* Width scales with viewport */
+  border-radius: 10px;
+  padding: 3vh;
+  height: 100%;
 }
 
+/* Chat Conversation Styles */
 .bot-conv-container,
 .user-conv-container {
   display: flex;
@@ -102,27 +90,24 @@ section {
 .botMsg,
 .userMsg {
   background: #DFE0DF;
-  padding: 15px 30px;
+  padding: 2vh 4vw;
   border-radius: 2vh;
-  width: 250px;
+  width: 60vw; /* Adjusts to screen width */
   transition: ease-in-out 1.3s;
 }
 
 .bot-msg {
   background: #372800;
   color: white;
-  transition: ease-in-out 1.3s;
 }
 
 .userMsg {
   background: #FEB822;
-  transition: ease-in-out 1.3s;
 }
 
 .userMsg2 {
   background: #143d59;
   color: white;
-  transition: ease-in-out 1.3s;
 }
 
 .bot-pic,
@@ -132,33 +117,35 @@ section {
 
 .fa-robot {
   color: #FEB822;
-  transition: ease-in-out 1.3s;
 }
 
 .bot2 {
   color: black;
-  transition: ease-in-out 1.3s;
 }
 
 small#time {
-  margin-left: 25px;
+  margin-left: 5vw;
 }
 
 .user-demo-answer small#time {
-  margin-left: 250px;
+  margin-left: auto;
 }
 
+/* Form Wrapper */
 .form-wrapper {
   position: sticky;
   border: 1px solid grey;
   border-radius: 5vh;
-  top: 630px;
+  top: auto;
   margin: 0 5px;
+  bottom: 0;
+  width: 100%;
 }
 
 .conversation-compose {
   display: flex;
   flex-direction: row;
+  width: 100%;
 }
 
 input {
@@ -166,9 +153,8 @@ input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   background-color: #DFE0DF;
-  padding: 10px;
-  width: 250px;
-  position: relative;
+  padding: 2vh;
+  width: 70%;
 }
 
 .send {
@@ -176,17 +162,79 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 50px 10 30px;
+  padding: 2vh;
   border-radius: 5vh;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   z-index: 1;
-  width: 80px;
-  transition: ease-in-out 1.3s;
+  width: 30%;
 }
 
 .send2 {
   background: #143d59;
   color: #FEB822;
+}
+
+/* Section Backgrounds */
+section {
+  background: url("/media/images/whitebg.jpg") no-repeat center;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  opacity: 0.9;
+  z-index: 1;
+  margin-top: 1vh;
+  padding: 2vw;
   transition: ease-in-out 1.3s;
+}
+
+.background2 {
+  background: url("/media/images/yellow4.jpg") no-repeat center;
+  background-size: cover;
+  transition: ease-in-out 1.3s;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  header #openMenu i,
+  header .toggle a {
+    font-size: 5vw; /* Increase font size for smaller screens */
+  }
+
+  .botMsg,
+  .userMsg {
+    width: 80vw; /* Make messages wider on smaller screens */
+  }
+
+  .chat-container {
+    max-width: 90vw; /* Expand container width */
+  }
+
+  input {
+    width: 65vw;
+  }
+
+  .send {
+    width: 35vw;
+  }
+}
+
+@media (max-width: 480px) {
+  header #openMenu i,
+  header .toggle a {
+    font-size: 6vw;
+  }
+
+  .botMsg,
+  .userMsg {
+    width: 90vw; /* Maximize width on very small screens */
+  }
+
+  input {
+    width: 60vw;
+  }
+
+  .send {
+    width: 40vw;
+  }
 }

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>Chat Bot</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="chat.css">
 </head>
@@ -65,7 +65,101 @@
     </div>
   </section>
 
-  <script src=".js"></script>
+  <script>
+    const typeMsg = document.querySelector("#val");
+    const sendBtn = document.querySelector("#sendBtn");
+    const form = document.querySelector("#form");
+
+    // Função para enviar a mensagem
+    function sendMsg() {
+      let allMsgCont = document.querySelector("#section");
+      let msg = typeMsg.value.trim(); // Remove espaços no início e fim da mensagem
+
+      if (msg === "") return; // Evita enviar mensagens vazias
+
+      let msgRoom = `<div class="user-demo-answer">
+            <div class="user-conv-container">
+              <div class="user-pic">
+                <i class="fa fa-user-circle"></i>
+              </div>
+              <div class="userMsg">
+                ${msg}
+              </div>
+            </div>
+            <small id="time">11:45 PM</small>
+          </div>`;
+      allMsgCont.innerHTML += msgRoom;
+      typeMsg.value = ""; // Limpa o campo de entrada
+
+      let respostasEspecificas = {
+        "onde você está?": "Estou a caminho do seu endereço.",
+        "qual é o seu nome?": "Meu nome é Carlos, seu motorista.",
+        "quanto tempo vai demorar?": "De acordo com o GPS, estarei aí em 5 minutos.",
+        "você aceita pagamento em cartão?": "Sim, aceito pagamentos com cartão.",
+        "quanto vai custar a corrida?": "O valor será exibido ao final da corrida, de acordo com o percurso.",
+      };
+
+      if (msg.endsWith("?")) {
+        let resposta = respostasEspecificas[msg.toLowerCase()];
+
+        if (resposta) {
+          setTimeout(function() {
+            allMsgCont.innerHTML += `<div class="bot-first-question">
+              <span class="bot-conv-container">
+                <div class="bot-pic">
+                  <i class="fa fa-robot"></i>
+                </div>
+                <span class="botMsg message">
+                  ${resposta}
+                </span>
+              </span>
+              <small id="time">11:45 PM</small>
+            </div>`;
+          }, 1500);
+        } else {
+          let respostasAleatorias = ["Sim.", "Não.", "Talvez.", "Pode ser."];
+          let randomAnswer = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
+
+          setTimeout(function() {
+            allMsgCont.innerHTML += `<div class="bot-first-question">
+              <span class="bot-conv-container">
+                <div class="bot-pic">
+                  <i class="fa fa-robot"></i>
+                </div>
+                <span class="botMsg message">
+                  ${randomAnswer}
+                </span>
+              </span>
+              <small id="time">11:45 PM</small>
+            </div>`;
+          }, 1500);
+        }
+      } else {
+        setTimeout(function() {
+          allMsgCont.innerHTML += `<div class="bot-first-question">
+            <span class="bot-conv-container">
+              <div class="bot-pic">
+                <i class="fa fa-robot"></i>
+              </div>
+              <span class="botMsg message">
+                Não tenho uma resposta para isso. Tente novamente.
+              </span>
+            </span>
+            <small id="time">11:45 PM</small>
+          </div>`;
+        }, 1500);
+      }
+    }
+
+    // Enviar a mensagem ao clicar no botão
+    sendBtn.addEventListener("click", sendMsg);
+
+    // Enviar a mensagem ao pressionar Enter
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // Evita o reload da página
+      sendMsg();
+    });
+  </script>
 </body>
 
 </html>
