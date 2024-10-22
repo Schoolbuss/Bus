@@ -1,81 +1,52 @@
-if ("geolocation" in navigator) {
-  navigator.geolocation.getCurrentPosition(
-    function (position) {
-      console.log("Latitude: " + position.coords.latitude);
-      console.log("Longitude: " + position.coords.longitude);
-    },
-    function (error) {
-      console.error("Erro ao obter localização: " + error.message);
-    }
-  );
-} else {
-  console.error("Geolocalização não suportada pelo navegador.");
-}
+const typeMsg = document.querySelector("#val");
 
-const watchId = navigator.geolocation.watchPosition(
-  function (position) {
-    console.log("Latitude: " + position.coords.latitude);
-    console.log("Longitude: " + position.coords.longitude);
-  },
-  function (error) {
-    console.error("Erro ao obter localização: " + error.message);
+const sendMsg = document.querySelector("#sendBtn").addEventListener("click", () => {
+  let allMsgCont = document.querySelector("#section");
+  let msg = typeMsg.value;
+
+  let msgRoom = `<div class="user-demo-answer">
+        <div class="user-conv-container">
+          <div class="user-pic">
+            <i class="fa fa-user-circle"></i>
+          </div>
+          <div class="userMsg">
+            ${msg}
+          </div>
+        </div>
+        <small id="time">11:45 PM</small>
+      </div>`;
+  allMsgCont.innerHTML += msgRoom;
+
+  if (msg.endsWith("?")) {
+    let answers = ["Sim.", "Não."];
+    let randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+
+    setTimeout(function() {
+      allMsgCont.innerHTML += `<div class="bot-first-question">
+        <span class="bot-conv-container">
+          <div class="bot-pic">
+            <i class="fa fa-robot"></i>
+          </div>
+          <span class="botMsg message">
+            ${randomAnswer}
+          </span>
+        </span>
+        <small id="time">11:45</small>
+      </div>`;
+    }, 1500);
+  } else {
+    setTimeout(function() {
+      allMsgCont.innerHTML += `<div class="bot-first-question">
+        <span class="bot-conv-container">
+          <div class="bot-pic">
+            <i class="fa fa-robot"></i>
+          </div>
+          <span class="botMsg message">
+            Não tenho uma resposta para isso. Tente novamente.
+          </span>
+        </span>
+        <small id="time">11:45</small>
+      </div>`;
+    }, 1500);
   }
-);
-
-// Para parar o monitoramento
-navigator.geolocation.clearWatch(watchId);
-
-const options = {
-  enableHighAccuracy: true, // Melhora a precisão, mas pode consumir mais bateria
-  timeout: 5000, // Tempo máximo de espera (5 segundos)
-  maximumAge: 0 // Não usa uma localização em cache
-};
-
-navigator.geolocation.getCurrentPosition(successCallback, errorCallback, options)
-;
-class MobileNavbar {
-
-    constructor(mobileMenu, navList, navLinks) {
-
-      this.mobileMenu = document.querySelector(mobileMenu);
-      this.navList = document.querySelector(navList);
-      this.navLinks = document.querySelectorAll(navLinks);
-      this.activeClass = "active";
-  
-      this.handleClick = this.handleClick.bind(this);
-    }
-  
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation
-          ? (link.style.animation = "")
-          : (link.style.animation = `navLinkFade 0.5s ease forwards ${
-              index / 7 + 0.3
-            }s`);
-      });
-    }
-  
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
-      this.animateLinks();
-    }
-  
-    addClickEvent() {
-      this.mobileMenu.addEventListener("click", this.handleClick);
-    }
-  
-    init() {
-      if (this.mobileMenu) {
-        this.addClickEvent();
-      }
-      return this;
-    }
-  }
-  
-  const mobileNavbar = new MobileNavbar(
-    ".mobile-menu",
-    ".nav-list",
-    ".nav-list li",
-  );
-  mobileNavbar.init();
+});

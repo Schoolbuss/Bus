@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <link rel="stylesheet" href="chat.css">
+</head>
+
+<body>
+  <header>
+    <div id="openMenu">
+      <i class="fa fa-bars"></i>
+    </div>
+    <div id="logo">
+      <span class="motorista">
+        <span id="mot">
+          <em>tio perua</em>
+        </span>
+        <span id="orista">/motorista</span>
+      </span>
+    </div>
+    <div class="toggle">
+      <a href="tel:07047344365" class="fa fa-phone"></a>
+    </div>
+  </header>
+
+  <section>
+    <div class="chat-container">
+      <div class="bot-first-question">
+        <span class="bot-conv-container">
+          <div class="bot-pic">
+            <i class="fa fa-robot"></i>
+          </div>
+          <span class="botMsg message">
+            Olá... sou o motorista como posso ajudar?
+          </span>
+        </span>
+        <small id="time">11:45</small>
+      </div>
+
+      <div class="user-demo-answer">
+        <div class="user-conv-container">
+          <div class="user-pic">
+            <i class="fa fa-user-circle"></i>
+          </div>
+          <div class="userMsg">
+            Oi...
+          </div>
+        </div>
+        <small id="time">11:45 PM</small>
+      </div>
+      <p id="section"></p>
+      <p id="botReply"></p>
+      <div class="form-wrapper">
+        <form id="form" class="conversation-compose">
+          <input id="val" class="input-msg" name="input" placeholder="Escreva uma mensagem" autocomplete="off" autofocus></input>
+          <span class="send" id="sendBtn">
+            <i class="fa fa-paper-plane"></i>
+          </span>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script src=".js"></script>
+</body>
+
+</html>
