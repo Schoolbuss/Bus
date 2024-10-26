@@ -134,7 +134,7 @@ nav {
 /* HERO SECTION */
 #hero {
     background-image: url('bus.png');
-    background-size: cover;
+    background-size: contain; /* Ajuste para exibir a imagem inteira sem cortes */
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh; 
@@ -144,6 +144,8 @@ nav {
     text-align: center;
     color: #fff;
 }
+
+/* HERO SECTION - A imagem do fundo foi ajustada para 'contain' para evitar cortes */
 
 .hero-title {
     font-size: 56px;
