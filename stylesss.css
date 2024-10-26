@@ -29,9 +29,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--main-color);
+    background: var(--main-color); /* Alterado para branco */
     height: 8vh;
-    padding: 0 20px;
     position: relative;
 }
 
@@ -43,7 +42,7 @@ nav {
 .mobile-menu div {
     width: 32px;
     height: 2px;
-    background: #000;
+    background: #000; /* Alterado para preto */
     margin: 6px 0;
     transition: 0.3s;
 }
@@ -52,18 +51,19 @@ nav {
     position: absolute;
     top: 8vh;
     left: 0;
-    width: 100%;
-    background: var(--main-color);
+    width: 50vw;
+    height: 92vh;
+    background: var(--main-color); /* Alterado para branco */
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    transform: translateY(-100%);
+    transform: translateX(-100%); /* Muda para deslizar para fora da tela */
     transition: transform 0.3s ease-in-out;
     opacity: 0;
 }
 
 .nav-list.active {
-    transform: translateY(0);
+    transform: translateX(0);
     opacity: 1;
 }
 
@@ -73,12 +73,12 @@ nav {
 
 .nav-list a {
     text-decoration: none;
-    color: var(--link-color);
+    color: var(--link-color); /* Mantenha em preto */
     transition: color 0.4s;
 }
 
 .nav-list a:hover {
-    color: var(--highlight-text);
+    color: var(--highlight-text); /* Mantenha em preto */
 }
 
 /* Animação do menu */
@@ -94,13 +94,50 @@ nav {
     transform: rotate(45deg) translate(-6px, -6px);
 }
 
+/* SIDEBAR MENU */
+.hamburger-icon {
+    cursor: pointer;
+    margin: 20px;
+    z-index: 1001;
+}
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #fff; /* Alterado para branco */
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 22px;
+    color: #000; /* Alterado para preto */
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #ddd; /* Fundo cinza claro */
+}
+
+.side-menu.open {
+    width: 250px;
+}
+
 /* HERO SECTION */
 #hero {
     background-image: url('bus.png');
-    background-size: cover;
+    background-size: contain; /* Ajuste para exibir a imagem inteira sem cortes */
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,11 +145,12 @@ nav {
     color: #fff;
 }
 
+/* HERO SECTION - A imagem do fundo foi ajustada para 'contain' para evitar cortes */
+
 .hero-title {
-    font-size: 48px;
+    font-size: 56px;
     font-weight: 700;
     letter-spacing: 2px;
-    text-align: center;
 }
 
 .cta-btn--hero {
@@ -141,7 +179,6 @@ nav {
     justify-content: space-between;
     gap: 50px;
     flex-wrap: wrap;
-    text-align: center;
 }
 
 .about-wrapper__image img {
@@ -152,7 +189,7 @@ nav {
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 40px;
     font-weight: 700;
     margin-bottom: 30px;
 }
@@ -241,8 +278,8 @@ nav {
 
 /* FOOTER */
 footer {
-    background-color: var(--main-color);
-    color: var(--link-color);
+    background-color: var(--main-color); /* Alterado para branco */
+    color: var(--link-color); /* Texto preto */
     padding: 20px 0;
     text-align: center;
 }
@@ -261,10 +298,6 @@ footer p {
     .about-wrapper__image img {
         width: 100%;
     }
-
-    #hero .hero-title {
-        font-size: 32px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -276,14 +309,5 @@ footer p {
     .project-wrapper {
         flex-direction: column;
         gap: 20px;
-    }
-
-    #hero .hero-title {
-        font-size: 28px;
-    }
-
-    .nav-list {
-        width: 100vw;
-        height: 92vh;
     }
 }
