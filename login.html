@@ -39,7 +39,7 @@
                         </a><!-- LINKEDIN -->
                     </ul>
                 </div><!-- SOCIAL-MIDIA -->
-                <p class="description descriptionsrc="-second">
+                <p class="description description-second">
                     <a href="senha.html">Esqueceu a senha?</a>
                 </p>
                 <form class="form">
@@ -112,10 +112,16 @@
         document.getElementById('signup').addEventListener('click', function(e) {
             e.preventDefault();
             console.log('Registro iniciado.');
+
+            // Desabilita o botão e muda o texto para "Registrando..."
             this.disabled = true;
             this.textContent = 'Registrando...';
 
+            // Adiciona um atraso de 2 segundos antes de mostrar o alert
             setTimeout(function() {
+                alert("Registrado com sucesso!");
+
+                // Redireciona após o alerta
                 window.location.href = 'informacoes.html'; // Redireciona para 'informacoes.html'
             }, 2000);
         });

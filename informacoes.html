@@ -16,6 +16,7 @@
             display: flex; /* Usando flexbox */
             justify-content: center; /* Centraliza horizontalmente */
             align-items: center; /* Centraliza verticalmente */
+            flex-direction: column; /* Alinha os elementos em coluna */
         }
 
         .form-container {
@@ -102,6 +103,21 @@
                 margin: 20px auto;
             }
         }
+
+        /* Estilos para notificação */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza horizontalmente */
+            background-color: #4CAF50; /* Verde */
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Para que a notificação fique acima de outros elementos */
+            display: none; /* Inicialmente oculta */
+        }
     </style>
 </head>
 <body>
@@ -151,14 +167,39 @@
         </form>
     </div>
 
+    <div id="notification" class="notification">Cadastro realizado com sucesso!</div>
+
     <script>
         document.getElementById("validate-btn").addEventListener("click", function(event) {
-            let isValid = true; // Coloque a lógica de validação aqui
-            if (isValid) {
-                window.location.href = "index.html"; // Redireciona após validação
-            } else {
-                alert("A validação falhou. Verifique os campos.");
+            let isValid = true; // Inicialmente assume que o formulário é válido
+            const school = document.getElementById('school').value;
+            const childName = document.getElementById('childName').value;
+            const dob = document.getElementById('dob').value;
+
+            // Verifique se os campos obrigatórios estão preenchidos
+            if (!school || !childName || !dob) {
+                isValid = false; // Define como inválido se algum campo obrigatório estiver vazio
+                alert("Por favor, preencha todos os campos obrigatórios.");
             }
+
+            // Verifique se a data de nascimento é válida
+            if (new Date(dob) >= new Date()) {
+                isValid = false;
+                alert("A data de nascimento deve ser anterior à data atual.");
+            }
+
+            if (isValid) {
+                // Atrasar a notificação e o redirecionamento
+                setTimeout(() => {
+                    const notification = document.getElementById("notification");
+                    notification.style.display = "block"; // Mostra a notificação
+                    setTimeout(() => {
+                        notification.style.display = "none"; // Oculta a notificação após 3 segundos
+                        window.location.href = "index.html"; // Redireciona após validação
+                    }, 3000); // 3000ms = 3 segundos
+                }, 1000); // 1000ms = 1 segundo
+            } 
+
             event.preventDefault(); // Impede o envio do formulário
         });
 
@@ -182,4 +223,3 @@
         });
     </script>
 </body>
-</html>

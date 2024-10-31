@@ -19,7 +19,7 @@
         <span id="mot">
           <em></em>
         </span>
-        <span id="orista">/motorista da van</span>
+        <span id="orista">motorista da van</span>
       </span>
     </div>
     <div class="toggle">
@@ -35,7 +35,7 @@
             <i class="fa fa-robot"></i>
           </div>
           <span class="botMsg message">
-            Olá... sou o motorista como posso ajudar?
+            Olá... sou o motorista, como posso ajudar?
           </span>
         </span>
         <small id="time">11:45</small>
@@ -70,10 +70,9 @@
     const sendBtn = document.querySelector("#sendBtn");
     const form = document.querySelector("#form");
 
-    // Função para enviar a mensagem
     function sendMsg() {
       let allMsgCont = document.querySelector("#section");
-      let msg = typeMsg.value.trim(); // Remove espaços no início e fim da mensagem
+      let msg = typeMsg.value.trim().toLowerCase();
 
       if (msg === "") return; // Evita enviar mensagens vazias
 
@@ -91,70 +90,77 @@
       allMsgCont.innerHTML += msgRoom;
       typeMsg.value = ""; // Limpa o campo de entrada
 
-      let respostasEspecificas = {
-        "onde você está?": "Estou a caminho do seu endereço.",
-        "qual é o seu nome?": "Meu nome é Carlos, seu motorista.",
-        "quanto tempo vai demorar?": "De acordo com o GPS, estarei aí em 5 minutos.",
-        "você aceita pagamento em cartão?": "Sim, aceito pagamentos com cartão.",
-        "quanto vai custar a corrida?": "O valor será exibido ao final da corrida, de acordo com o percurso.",
-      };
-
-      if (msg.endsWith("?")) {
-        let resposta = respostasEspecificas[msg.toLowerCase()];
-
-        if (resposta) {
-          setTimeout(function() {
-            allMsgCont.innerHTML += `<div class="bot-first-question">
-              <span class="bot-conv-container">
-                <div class="bot-pic">
-                  <i class="fa fa-robot"></i>
-                </div>
-                <span class="botMsg message">
-                  ${resposta}
-                </span>
-              </span>
-              <small id="time">11:45 PM</small>
-            </div>`;
-          }, 1500);
-        } else {
-          let respostasAleatorias = ["Sim.", "Não.", "Talvez.", "Pode ser."];
-          let randomAnswer = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
-
-          setTimeout(function() {
-            allMsgCont.innerHTML += `<div class="bot-first-question">
-              <span class="bot-conv-container">
-                <div class="bot-pic">
-                  <i class="fa fa-robot"></i>
-                </div>
-                <span class="botMsg message">
-                  ${randomAnswer}
-                </span>
-              </span>
-              <small id="time">11:45 PM</small>
-            </div>`;
-          }, 1500);
-        }
-      } else {
-        setTimeout(function() {
-          allMsgCont.innerHTML += `<div class="bot-first-question">
+      // Adiciona o indicador de "digitando..."
+      let typingIndicator = `<div id="typingIndicator" class="bot-first-question">
             <span class="bot-conv-container">
               <div class="bot-pic">
                 <i class="fa fa-robot"></i>
               </div>
               <span class="botMsg message">
-                Não tenho uma resposta para isso. Tente novamente.
+                Digitando...
               </span>
             </span>
             <small id="time">11:45 PM</small>
           </div>`;
-        }, 1500);
+      allMsgCont.innerHTML += typingIndicator;
+
+      // Função para remover o indicador de "digitando..." e mostrar a resposta
+      function showBotResponse(response) {
+        const typingIndicatorElement = document.querySelector("#typingIndicator");
+        if (typingIndicatorElement) typingIndicatorElement.remove();
+
+        allMsgCont.innerHTML += `<div class="bot-first-question">
+            <span class="bot-conv-container">
+              <div class="bot-pic">
+                <i class="fa fa-robot"></i>
+              </div>
+              <span class="botMsg message">
+                ${response}
+              </span>
+            </span>
+            <small id="time">11:45 PM</small>
+          </div>`;
+      }
+
+      // Verifica se a mensagem contém qualquer uma das palavras "filho", "não" ou "amanhã"
+      if (msg.includes("filho") || msg.includes("não") || msg.includes("amanhã")) {
+        setTimeout(function() {
+          showBotResponse("Ok, obrigado por avisar");
+        }, 2000); // Atraso de 2 segundos para aparecer a resposta
+        return;
+      }
+
+      let respostasEspecificas = {
+        "onde você está?": "Estou a caminho do seu endereço.",
+        "qual é o seu nome?": "Meu nome é Carlos, seu motorista.",
+        "quanto tempo vai demorar?": "De acordo com o GPS, estarei aí em 5 minutos.",
+        "você aceita pagamento em cartão?": "Sim, aceito pagamentos com cartão.",
+        "quanto vai custar a corrida?": "O valor será exibido ao final da corrida, de acordo com o percurso."
+      };
+
+      if (msg.endsWith("?")) {
+        let resposta = respostasEspecificas[msg];
+
+        if (resposta) {
+          setTimeout(function() {
+            showBotResponse(resposta);
+          }, 2000); // Atraso de 2 segundos para aparecer a resposta
+        } else {
+          let respostasAleatorias = ["Sim.", "Não.", "Talvez.", "Pode ser."];
+          let randomAnswer = respostasAleatorias[Math.floor(Math.random() * respostasAleatorias.length)];
+
+          setTimeout(function() {
+            showBotResponse(randomAnswer);
+          }, 10000); // Atraso de 2 segundos para aparecer a resposta
+        }
+      } else {
+        setTimeout(function() {
+          showBotResponse("Não tenho uma resposta para isso. Tente novamente.");
+        }, 10000); // Atraso de 2 segundos para aparecer a resposta
       }
     }
 
-    // Enviar a mensagem ao clicar no botão
     sendBtn.addEventListener("click", sendMsg);
-
-    // Enviar a mensagem ao pressionar Enter
     form.addEventListener("submit", function(event) {
       event.preventDefault(); // Evita o reload da página
       sendMsg();

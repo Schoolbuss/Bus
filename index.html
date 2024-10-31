@@ -9,7 +9,53 @@
   <link rel="stylesheet" href="stylesss.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
+    /* Estilização do menu com tarjas laranja */
+    nav {
+      background-color: #FF7F00; /* Cor laranja para o fundo do menu */
+      padding: 10px 0;
+      color: #fff; /* Cor dos textos no menu */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o menu */
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      background-color: #FFA500; /* Fundo laranja claro para a barra de navegação */
+      border-radius: 8px;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 10px 18px;
+      border-radius: 5px;
+      background-color: #FF7F00; /* Fundo laranja */
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background-color: #FFB84D; /* Laranja mais claro no hover */
+      color: #333; /* Texto mais escuro no hover */
+    }
+
+    /* Estilo para o ícone de hambúrguer */
+    .mobile-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff; /* Mantendo o ícone branco */
+      margin: 5px;
+    }
+
     /* Adicionando estilos CSS diretamente para a imagem responsiva */
     .responsive-image {
         width: 100%; /* Faz a imagem ocupar 100% da largura do seu contêiner */
@@ -35,8 +81,8 @@
       <li><a href="#about">Sobre</a></li>
       <li><a href="informacoes.html">Informações do Aluno</a></li>
       <li><a href="login.html">Login</a></li>
-      <li><a href="check.html">Check-in e Check-out</a></li> <!-- Atualizado -->
-      <li><a href="chat.html">Chat</a></li> <!-- Atualizado -->
+      <li><a href="check.html">Check-in e Check-out</a></li>
+      <li><a href="chat.html">Chat</a></li>
       <li><a href="#contact">Contato</a></li>
     </ul>
   </nav>
@@ -44,7 +90,6 @@
   <!-- **** Seção Hero **** -->
   <section id="hero" class="jumbotron">
     <div class="container">
-     
     </div>
   </section>
 
@@ -87,10 +132,6 @@
             <h3 class="project-wrapper__text-title">Título do Projeto</h3>
             <p class="mb-4">
               Desenvolvimento de software para cadastro. O nosso software de cadastro foi desenvolvido com o objetivo de oferecer uma experiência confiável e intuitiva para nossos clientes. Com uma interface amigável e recursos avançados, garantimos que o processo de registro e gerenciamento de informações seja simples e eficiente.
-
-              A segurança é uma prioridade, utilizando criptografia de ponta e práticas rigorosas de proteção de dados, assegurando que as informações dos usuários estejam sempre protegidas. Além disso, nosso sistema permite personalização e integração com outras ferramentas, proporcionando flexibilidade para atender às necessidades específicas de cada cliente.
-
-              Estamos comprometidos em oferecer um suporte técnico de alta qualidade, garantindo que nossos clientes tenham sempre assistência disponível para qualquer dúvida ou problema. Com o nosso software, os usuários podem cadastrar e gerenciar suas informações com total confiança e tranquilidade.
             </p>
           </div>
         </div>
@@ -109,7 +150,7 @@
     <div class="container">
       <h2 class="section-title">Chat</h2>
       <p>
-        O SchoolBus é uma plataforma inovadora que conecta pais, alunos e motoristas de ônibus escolares, proporcionando uma comunicação eficiente e em tempo real. Através do recurso de chat, os usuários podem se comunicar diretamente com os motoristas, esclarecendo dúvidas, compartilhando informações sobre horários e trajetos, ou notificando sobre mudanças de última hora. O ambiente é seguro e intuitivo, permitindo que os pais acompanhem o trajeto dos filhos e que os motoristas se mantenham informados sobre qualquer situação. Com o SchoolBus, a experiência de transporte escolar se torna mais tranquila e confiável, promovendo a segurança e a transparência para todos os envolvidos.
+        O SchoolBus é uma plataforma inovadora que conecta pais, alunos e motoristas de ônibus escolares, proporcionando uma comunicação eficiente e em tempo real. Através do recurso de chat, os usuários podem se comunicar diretamente com os motoristas, esclarecendo dúvidas, compartilhando informações sobre horários e trajetos, ou notificando sobre mudanças de última hora.
       </p>
       <!-- Adicionando a imagem do chat -->
       <img class="responsive-image" src="chat.png" alt="Descrição da imagem do chat" />
@@ -135,6 +176,12 @@
       </div>
     </div>
   </section>
+  
+  <footer>
+    <p>&copy; 2024 SchoolBus. Todos os direitos reservados.</p>
+  </footer>
+</body>
+</html>
 
   <!-- Scripts -->
   <script src="script.js"></script>
