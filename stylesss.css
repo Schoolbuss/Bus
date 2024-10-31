@@ -1,8 +1,8 @@
 /* ROOT VARIABLES */
 :root {
-    --main-color: #FF7F00;       /* Laranja para navbar e footer */
+    --main-color: #007BFF;       /* Azul para navbar e footer */
     --link-color: #fff;           /* Links em branco */
-    --highlight-text: #FFB84D;    /* Laranja claro de destaque */
+    --highlight-text: #66B2FF;    /* Azul claro de destaque */
 }
 
 /* RESETS */
