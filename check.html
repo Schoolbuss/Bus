@@ -81,64 +81,81 @@
                 <td>1</td>
                 <td>Lucas Mendes Ferreira</td>
                 <td id="checkin1">08:00</td>
-                <td id="checkout1">17:00</td>
+                <td id="checkout1">--:--</td>
                 <td><input type="checkbox" name="lembre1" onclick="marcarCheckIn('checkin1', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout1')">Entregue</button></td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>Ana Clara Silva Nogueira</td>
-                <td id="checkin2">08:15</td>
-                <td id="checkout2">16:45</td>
+                <td id="checkin2">08:00</td>
+                <td id="checkout2">--:--</td>
                 <td><input type="checkbox" name="lembre2" onclick="marcarCheckIn('checkin2', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout2')">Entregue</button></td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>Pedro Henrique Souza Martins</td>
-                <td id="checkin3">08:10</td>
-                <td id="checkout3">17:30</td>
+                <td id="checkin3">08:00</td>
+                <td id="checkout3">--:--</td>
                 <td><input type="checkbox" name="lembre3" onclick="marcarCheckIn('checkin3', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout3')">Entregue</button></td>
+            </tr>
+            <tr>
                 <td>4</td>
                 <td>Maria Eduarda Oliveira Costa</td>
-                <td id="checkin4">08:05</td>
-                <td id="checkout4">17:00</td>
+                <td id="checkin4">08:00</td>
+                <td id="checkout4">--:--</td>
                 <td><input type="checkbox" name="lembre4" onclick="marcarCheckIn('checkin4', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout4')">Entregue</button></td>
             </tr>
             <tr>
                 <td>5</td>
                 <td>João Miguel Almeida Santos</td>
-                <td id="checkin5">08:20</td>
-                <td id="checkout5">16:55</td>
+                <td id="checkin5">08:00</td>
+                <td id="checkout5">--:--</td>
                 <td><input type="checkbox" name="lembre5" onclick="marcarCheckIn('checkin5', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout5')">Entregue</button></td>
             </tr>
             <tr>
                 <td>6</td>
                 <td>Luísa Fernanda Costa Pereira</td>
-                <td id="checkin6">08:30</td>
-                <td id="checkout6">17:10</td>
+                <td id="checkin6">08:00</td>
+                <td id="checkout6">--:--</td>
                 <td><input type="checkbox" name="lembre6" onclick="marcarCheckIn('checkin6', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout6')">Entregue</button></td>
             </tr>
-            <
-            tr>
+            <tr>
                 <td>7</td>
-                <td>arthur Menezes</td>
-                <td id="checkin7">08:40</td>
-                <td id="checkout7">17:20</td>
+                <td>Arthur Menezes</td>
+                <td id="checkin7">08:00</td>
+                <td id="checkout7">--:--</td>
                 <td><input type="checkbox" name="lembre7" onclick="marcarCheckIn('checkin7', this)"> Lembre de mim</td>
                 <td><button onclick="marcarCheckOut('checkout7')">Entregue</button></td>
             </tr>
-            tr>
-                <td>7</td>
+            <tr>
+                <td>8</td>
                 <td>Mateus Oliveira</td>
-                <td id="checkin7">08:40</td>
-                <td id="checkout7">17:20</td>
-                <td><input type="checkbox" name="lembre7" onclick="marcarCheckIn('checkin7', this)"> Lembre de mim</td>
-                <td><button onclick="marcarCheckOut('checkout7')">Entregue</button></td>
+                <td id="checkin8">08:00</td>
+                <td id="checkout8">--:--</td>
+                <td><input type="checkbox" name="lembre8" onclick="marcarCheckIn('checkin8', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout8')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Bruno Silva</td>
+                <td id="checkin9">08:00</td>
+                <td id="checkout9">--:--</td>
+                <td><input type="checkbox" name="lembre9" onclick="marcarCheckIn('checkin9', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout9')">Entregue</button></td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Fernanda Santos</td>
+                <td id="checkin10">08:00</td>
+                <td id="checkout10">--:--</td>
+                <td><input type="checkbox" name="lembre10" onclick="marcarCheckIn('checkin10', this)"> Lembre de mim</td>
+                <td><button onclick="marcarCheckOut('checkout10')">Entregue</button></td>
             </tr>
         </tbody>
     </table>
@@ -174,17 +191,6 @@
                     <tr>
                         <td>${rowCount}</td>
                         <td>${studentName}</td>
-                        <td id="checkin${rowCount}">--:--</td>
+                        <td id="checkin${rowCount}">08:00</td>
                         <td id="checkout${rowCount}">--:--</td>
-                        <td><input type="checkbox" name="lembre${rowCount}" onclick="marcarCheckIn('checkin${rowCount}', this)"> Lembre de mim</td>
-                        <td><button onclick="marcarCheckOut('checkout${rowCount}')">Entregue</button></td>
-                    </tr>
-                `;
-
-                table.insertAdjacentHTML('beforeend', newRow);
-                localStorage.removeItem("studentName");
-            }
-        }
-    </script>
-</body>
-</html>.
+                        <td><input type="checkbox" name="lembre${rowCount}" onclick="marcarCheckIn('checkin${rowCount}', this)"> L

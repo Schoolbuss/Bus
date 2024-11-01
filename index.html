@@ -13,10 +13,10 @@
   <style>
     /* Estilização do menu com tarjas azuis */
     nav {
-      background-color: #007BFF; /* Cor azul para o fundo do menu */
+      background-color: #007BFF;
       padding: 10px 0;
-      color: #fff; /* Cor dos textos no menu */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destacar o menu */
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     nav ul {
@@ -25,7 +25,7 @@
       margin: 0;
       display: flex;
       justify-content: center;
-      background-color: #66B2FF; /* Fundo azul claro para a barra de navegação */
+      background-color: #66B2FF;
       border-radius: 8px;
     }
 
@@ -39,30 +39,48 @@
       font-weight: bold;
       padding: 10px 18px;
       border-radius: 5px;
-      background-color: #007BFF; /* Fundo azul */
+      background-color: #007BFF;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     nav ul li a:hover {
-      background-color: #A6D3FF; /* Azul mais claro no hover */
-      color: #333; /* Texto mais escuro no hover */
+      background-color: #A6D3FF;
+      color: #333;
     }
 
     /* Estilo para o ícone de hambúrguer */
     .mobile-menu div {
       width: 25px;
       height: 3px;
-      background-color: #fff; /* Mantendo o ícone branco */
+      background-color: #fff;
       margin: 5px;
     }
 
     /* Adicionando estilos CSS diretamente para a imagem responsiva */
     .responsive-image {
-        width: 100%; /* Faz a imagem ocupar 100% da largura do seu contêiner */
-        height: auto; /* Mantém a proporção da imagem */
-        max-width: 500px; /* Define uma largura máxima para a imagem */
-        display: block; /* Garante que não haja espaço embaixo da imagem */
-        margin: 0 auto; /* Centraliza a imagem */
+        width: 100%;
+        height: auto;
+        max-width: 500px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 15px;
+    }
+
+    /* Destaque para o parágrafo na seção Hero */
+    .hero-highlight {
+        font-size: 28px;           /* Tamanho da fonte aumentado */
+        font-weight: bold;
+        color: #1E90FF;            /* Cor azul vibrante */
+        margin-bottom: 20px;
+        margin-top: 20px;
+        text-align: center;
+        font-style: italic;        /* Texto em itálico */
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para o texto */
+    }
+
+    /* Aplicação de itálico para todo o texto */
+    body, p, h2, h3, a, li {
+      font-style: italic;
     }
   </style>
 </head>
@@ -87,10 +105,14 @@
     </ul>
   </nav>
 
-  <!-- **** Seção Hero **** -->
+  <!-- Frase logo abaixo do menu -->
+  <p class="hero-highlight">Transporte vidas com segurança</p> <!-- Frase destacada -->
+
+  <!-- Seção Hero (opcional) -->
   <section id="hero" class="jumbotron">
-    <div class="container">
-    </div>
+      <div class="container">
+          <!-- Se quiser manter a seção Hero, coloque seu conteúdo aqui -->
+      </div>
   </section>
 
   <!-- **** Seção Sobre **** -->
@@ -166,8 +188,7 @@
 
         <!-- Ícone do WhatsApp -->
         <a href="https://wa.me/5511998881757" target="_blank" rel="noreferrer" class="cta-btn cta-btn--whatsapp">
-          <i class="fab fa-whatsapp" style="font-size: 30px; color: #25d366;"></i> WhatsApp
-        </a>
+          <i class="fab fa-whatsapp" style="font-size: 30px; color: #25d366;"></i> WhatsApp</a>
 
         <!-- Ícone do E-mail -->
         <a href="mailto:ricardohdepaula10@gmail.com" target="_blank" rel="noreferrer" class="cta-btn cta-btn--email">
